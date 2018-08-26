@@ -68,7 +68,7 @@ function lpays(type){
             if($("#sl").val()!=0){
                 if(spid!=""){
                     Base64 = new Base64();
-                    var rurl = window.location.protocol+'//'+document.domain+'/kmxt?tab=b'+'&spid='+spid+'&pwd='+pwd;
+                    var rurl = window.location.protocol+'//'+document.domain+'/?tab=b'+'&spid='+spid+'&pwd='+pwd;
                     rurl = Base64.encode(rurl)
                     if(type=='zfb'){
                         window.location.href='https://pay.edlm.cn/?appid='+appid+'&income='+cc(zj)+'&rurl='+rurl+'&type=alipay';
