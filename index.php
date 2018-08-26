@@ -77,8 +77,8 @@
             ");
         }
         $fk = '<a onclick="lpays(\'zfb\');return false" class="type_a alipay_a"></a>
-               <a onclick="lpays(\'zfb\');return false" class="type_a wechat_a"></a>
-               <a onclick="lpays(\'zfb\');return false" class="qqpay_a type_a"></a>
+               <a onclick="lpays(\'wx\');return false" class="type_a wechat_a"></a>
+               <a onclick="lpays(\'qq\');return false" class="qqpay_a type_a"></a>
         ';
     }
     //获取tab选项卡打开的位置
