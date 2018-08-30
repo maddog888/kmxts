@@ -101,7 +101,7 @@
 		    		goto out;
 					exit;
 		    	}
-				if($lprow->{'error'}==0){
+				if(!is_null($lprow) and $lprow->{'error'}==0){
 					$token = md5($lprow->{'tradeNo'}.$adminm['apppwd'].$_POST['text']);//生成此订单的唯一密钥
 					if($lprow->{'token'}!=$token){
 						echo(tip('L Pays:此数据来自外宇宙,并不是有效的数据'));
@@ -129,24 +129,29 @@
 						            }
 						            $ii = null;
 						            do{
-						            	$kmu = $md->select('kms', "*", [
-						            		'AND' => [
-						            			'dh' => '',
-						            			'spid' => clear($_POST["spid"],32)
-						            		]
+						            	$count = $md->count("kms", [
+						            		'dh' => clear($_POST['text'],18)
 						            	]);
-						            	$kmu = $kmu[0];
-						            	$result = $md->update('kms', [
-						            		'dh' => clear($_POST['text'],18),
-						            		'time' => date(time()),
-						            		'mode' => $mode
-						            	],[
-						            		'AND' => [
-						            			'dh' => '',
-						            			'id' => $kmu['id'],
-						            			'time' => ''
-						            		]
-						            	]);
+						            	if($count<$moneyi){
+						            		$kmu = $md->select('kms', "*", [
+							            		'AND' => [
+							            			'dh' => '',
+							            			'spid' => clear($_POST["spid"],32)
+							            		],"LIMIT" => 1
+							            	]);
+							            	$kmu = $kmu[0];
+							            	$result = $md->update('kms', [
+							            		'dh' => clear($_POST['text'],18),
+							            		'time' => date(time()),
+							            		'mode' => $mode
+							            	],[
+							            		'AND' => [
+							            			'dh' => '',
+							            			'id' => $kmu['id'],
+							            			'time' => ''
+							            		]
+							            	]);
+						            	}
 						                $ii++;
 						            }while($ii<$moneyi);
 						            if($result){
@@ -297,24 +302,29 @@
 					            }
 					            $ii = null;
 					            do{
-					            	$kmu = $md->select('kms', "*", [
-					            		'AND' => [
-					            			'dh' => '',
-					            			'spid' => $row['spid']
-					            		]
+					            	$count = $md->count("kms", [
+					            		'dh' => clear($_POST['text'],18)
 					            	]);
-					            	$kmu = $kmu[0];
-					            	$result = $md->update('kms', [
-					            		'dh' => clear($_POST['text'],18),
-					            		'time' => date(time()),
-					            		'mode' => $mode
-					            	],[
-					            		'AND' => [
-					            			'dh' => '',
-					            			'id' => $kmu['id'],
-					            			'time' => ''
-					            		]
-					            	]);
+					            	if($count<$moneyi){
+					            		$kmu = $md->select('kms', "*", [
+						            		'AND' => [
+						            			'dh' => '',
+						            			'spid' => clear($_POST["spid"],32)
+						            		],"LIMIT" => 1
+						            	]);
+						            	$kmu = $kmu[0];
+						            	$result = $md->update('kms', [
+						            		'dh' => clear($_POST['text'],18),
+						            		'time' => date(time()),
+						            		'mode' => $mode
+						            	],[
+						            		'AND' => [
+						            			'dh' => '',
+						            			'id' => $kmu['id'],
+						            			'time' => ''
+						            		]
+						            	]);
+					            	}
 					                $ii++;
 					            }while($ii<$moneyi);
 					            if($result){
