@@ -309,8 +309,8 @@
 					            		$kmu = $md->select('kms', "*", [
 						            		'AND' => [
 						            			'dh' => '',
-						            			'spid' => clear($_POST["spid"],32)
-						            		],"LIMIT" => 1
+						            			'spid' => $row['spid']
+						            		]
 						            	]);
 						            	$kmu = $kmu[0];
 						            	$result = $md->update('kms', [
