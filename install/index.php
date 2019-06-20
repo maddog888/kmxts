@@ -1,4 +1,17 @@
 <?php
+    /*
+
+    避免版权纠纷
+    最早文件头部
+
+    EDLM个人发卡网3.5
+    作者：MadDog
+    QQ：3283404596
+    WX：Edi13146
+
+    未经同意请勿利用本程序采取转载、出售、等宣传手段以及盈利手段！
+
+    */
 error_reporting(E_ALL & ~E_NOTICE);  //显示全部错误
 define('ROOT_PATH', dirname(dirname(__FILE__)));  //定义根目录
 define('DBCHARSET','UTF8');   //设置数据库默认编码
@@ -25,23 +38,23 @@ if(is_file('lock') && $_GET['step'] != 5){
     echo "系统已经安装过了，如果要重新安装，那么请删除install目录下的lock文件";
     exit;
 }
-$html_title = 'EDLM自助提卡系统程序安装向导';
+$html_title = 'EDLM个人发卡网程序安装向导';
 $html_header = <<<EOF
 <div class="header">
   <div class="layout">
     <div class="title">
-      <h5>EDLM自助提卡系统</h5>
-      <h2>EDLM自助提卡系统安装向导</h2>
+      <h5>EDLM个人发卡网</h5>
+      <h2>EDLM个人发卡网安装向导</h2>
     </div>
-    <div class="version">版本: 商业版3.1</div>
+    <div class="version">版本: EDLM个人发卡网3.5</div>
   </div>
 </div>
 EOF;
 
 $html_footer = <<<EOF
 <div class="footer">
-  <h5>Powered by <font class="blue">EDLM</font>-<font class="orange">Md</font></h5>
-  <h6>版权所有 2018 &copy; <a href="http://www.edlm.cn" target="_blank">EDLM</a></h6>
+  <h5>Powered by <font class="orange">MadDog</font></h5>
+  <h6>版权所有 2019 &copy; <a href="http://km.edlm.cn" target="_blank">MD</a></h6>
 </div>
 EOF;
 require('./include/function.php');
@@ -122,14 +135,13 @@ function step3(&$install_error,&$install_recover){
     //新增一个标识文件，用来屏蔽重新安装
     $fp = @fopen('lock','wb+');
     @fclose($fp);
-    $config_file="../config.php";
+    $config_file="../app/mysql.php";
 	$config_strings="<?php\n";
 	$config_strings.="\$host=\"".$db_host."\";\n";
 	$config_strings.="\$port=\"".$db_port."\";\n";
 	$config_strings.="\$user=\"".$db_user."\";\n";
 	$config_strings.="\$pass=\"".$db_pwd."\";\n";
 	$config_strings.="\$dbname=\"".$db_name."\";\n";
-	$config_strings.="?>";
 	$fp=fopen($config_file,"wb");
 	fwrite($fp,$config_strings);
 	fclose($fp);

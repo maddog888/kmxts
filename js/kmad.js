@@ -1,7 +1,13 @@
-Base64 = new Base64();
-function tedit(id,name){
+function sx(t,id){
+	if($(t).text()=='上架'){
+		location.href='?xx='+id;
+	}else{
+		location.href='?ss='+id;
+	}
+}
+function tedit(id,tid,name){
 	$("#eid").val(id);
-	$("#id").val(id);
+	$("#id").val(tid);
 	$("#name").val(name);
     var $modal = $('#tip');
     $modal.modal();
@@ -10,13 +16,15 @@ function newl(){
     var $modal = $('#ntip');
     $modal.modal();
 }
-function ledit(id,title,mode,money,type){
+function ledit(id,or,title,mode,money,type){
 	$("#eid").val(id);
-	$("#id").val(id);
+	$("#id").val(or);
 	$("#title").val(title);
 	$("#mode").html(Base64.decode(mode));
 	$("#money").val(money);
 	$("#type").val(type);
+	console.log($("#type").val());
+	console.log(type);
     var $modal = $('#tip');
     $modal.modal();
 }
