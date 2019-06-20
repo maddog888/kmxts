@@ -16,7 +16,7 @@ EDLM个人发卡网（程序）是由MadDog使用Thinkphp开发的一个站长�
 后台入口：网址+/admin (注意:后台最后面不要加“/”比如“km.edlm.cn/admin/” 这样是不行的,会导致后台样式出错！要把最后面的“/”去掉！)
 账号：admin
 密码：123456
-搭建演示：https://api.edlm.cn/txv.php?vid=a0870hv5095(视频为旧版，新版本中的后台为admin)
+搭建演示：https://api.edlm.cn/txv.php?vid=a0870hv5095 (视频为旧版，新版本中的后台为admin)
 作者留言：
 请尊重作者的劳动功劳，勿修改版权信息
 为了防止某人盗取版权，源码特作处理，如需原版源码请联系我
