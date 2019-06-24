@@ -25,5 +25,5 @@ EDLM个人发卡网（程序）是由MadDog使用Thinkphp开发的一个站长�
 QQ交流群:399454219 (已满)  
 QQ交路群2:801238545 (未满)  
   
-作者VX:Edi13146
+作者VX:Edi13146  
 ![image](https://github.com/maddog888/images/blob/master/wx.jpg?raw=true)
