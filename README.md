@@ -26,3 +26,4 @@ QQ交流群:399454219 (已满)
 QQ交路群2:801238545 (未满)  
   
 作者VX:Edi13146
+![image](https://github.com/maddog888/images/blob/master/wx.jpg?raw=true)
