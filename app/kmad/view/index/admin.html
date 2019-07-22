@@ -1,1 +1,63 @@
-{layout name="layout"/}<div class="tpl-content-wrapper"><div class="tpl-portlet-components"><div class="portlet-title"><div class="caption font-green bold"><span class="am-icon-code"></span> 管理配置</div></div><div class="tpl-block"><div class="am-g"><div class="tpl-form-body tpl-form-line"><form class="am-form tpl-form-line-form" method="post"><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">管理员账号</label><div class="am-u-sm-9"><input type="text" class="tpl-form-input" name="username" placeholder="管理员账号" value="{$admin['username']}"></div></div><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">管理员密码</label><div class="am-u-sm-9"><input type="password" class="tpl-form-input" name="passwords" placeholder="管理员密码,留空则不修改"></div></div><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">QQ发件邮箱账号</label><div class="am-u-sm-9"><input type="text" class="tpl-form-input" name="qqmu" value="{$admin['mailu']}"><small>如何开启QQ发件功能?<a target="_blank" href="https://jingyan.baidu.com/article/148a1921a8e2d34d71c3b126.html">去学习一下！</a>输入您的QQ发信账号!</small></div></div><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">QQ发件邮箱密码</label><div class="am-u-sm-9"><input type="text" class="tpl-form-input" name="qqmp" value="{$admin['mailp']}"><small>如何开启QQ发件功能?<a target="_blank" href="https://jingyan.baidu.com/article/148a1921a8e2d34d71c3b126.html">去学习一下！</a>输入您的QQ发信授权码!</small></div></div><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">L Pays Id</label><div class="am-u-sm-9"><input type="text" class="tpl-form-input" name="appid" value="{$admin['appid']}"><small>第三方免签约收款服务:<a href="http://lp.edlm.cn/">L Pays</a> ,已对接,开通即可使用！</small></div></div><div class="am-form-group"><label for="user-name" class="am-u-sm-3 am-form-label">L Pays Pwd</label><div class="am-u-sm-9"><input type="text" class="tpl-form-input" name="apppwd" placeholder="APP Pwd,留空则不修改"><small>第三方免签约收款服务:<a href="http://lp.edlm.cn/">L Pays</a> ,已对接,开通即可使用！</small></div></div><div class="am-form-group"><div class="am-u-sm-9 am-u-sm-push-3"><input type="submit" value="保存" name="save" class="am-btn am-btn-primary tpl-btn-bg-color-success"></div></div></form></div></div></div></div></div>
+{layout name="layout"/}
+<div class="tpl-content-wrapper">
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption font-green bold">
+                <span class="am-icon-code"></span> 管理配置
+            </div>
+        </div>
+        <div class="tpl-block">
+            <div class="am-g">
+                <div class="tpl-form-body tpl-form-line">
+                    <form class="am-form tpl-form-line-form" method="post">
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">管理员账号</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="username" placeholder="管理员账号" value="{$admin['username']}">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">管理员密码</label>
+                            <div class="am-u-sm-9">
+                                <input type="password" class="tpl-form-input" name="passwords" placeholder="管理员密码,留空则不修改">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">QQ发件邮箱账号</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="qqmu" value="{$admin['mailu']}">
+                                <small>如何开启QQ发件功能?<a target="_blank" href="https://jingyan.baidu.com/article/148a1921a8e2d34d71c3b126.html">去学习一下！</a>输入您的QQ发信账号!</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">QQ发件邮箱密码</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="qqmp" value="{$admin['mailp']}">
+                                <small>如何开启QQ发件功能?<a target="_blank" href="https://jingyan.baidu.com/article/148a1921a8e2d34d71c3b126.html">去学习一下！</a>输入您的QQ发信授权码!</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">L Pays Id</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="appid" value="{$admin['appid']}">
+                                <small>第三方免签约收款服务:<a href="http://lp.edlm.cn/">L Pays</a> ,已对接,开通即可使用！</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">L Pays Pwd</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" name="apppwd" placeholder="APP Pwd,留空则不修改">
+                                <small>第三方免签约收款服务:<a href="http://lp.edlm.cn/">L Pays</a> ,已对接,开通即可使用！</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <input type="submit" value="保存" name="save" class="am-btn am-btn-primary tpl-btn-bg-color-success">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

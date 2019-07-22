@@ -1,1 +1,38 @@
-{layout name="layout"/}<div class="tpl-content-wrapper"><div class="tpl-portlet-components"><div class="portlet-title"><div class="caption font-green bold"><span class="am-icon-code"></span> 最近卖出 </div></div><form method="post"><div class="tpl-block"><div class="am-g"><table class="am-table am-table-striped am-table-hover table-main"><thead><tr><th class="table-id">ID</th><th class="table-title">卡密名称</th><th class="table-km">卡密数据</th><th class="table-dh">订单号</th><th class="table-time">提卡时间</th></tr></thead><tbody>{foreach $kml as $v}<tr><td>{$v['id']}</td><td>{$v['name']}</td><td>{$v['km']}</td><td><a href="./dd?order={$v['order']}" target="_blank" class="am-badge am-badge-warning">{$v['order']}</a></td><td>{$v['time']}</td></tr>{/foreach}</tbody></table></div></div></div></form></div>
+{layout name="layout"/}
+<div class="tpl-content-wrapper">
+<div class="tpl-portlet-components">
+    <div class="portlet-title">
+        <div class="caption font-green bold">
+            <span class="am-icon-code"></span> 最近卖出 
+        </div>
+    </div>
+    <form method="post">
+        <div class="tpl-block">
+            <div class="am-g">
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                            <tr>
+                                <th class="table-id">ID</th>
+                                <th class="table-title">卡密名称</th>
+                                <th class="table-km">卡密数据</th>
+                                <th class="table-dh">订单号</th>
+                                <th class="table-time">提卡时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach $kml as $v}
+                                <tr>
+                                    <td>{$v['id']}</td>
+                                    <td>{$v['name']}</td>
+                                    <td>{$v['km']}</td>
+                                    <td><a href="./dd?order={$v['order']}" target="_blank" class="am-badge am-badge-warning">{$v['order']}</a></td>
+                                    <td>{$v['time']}</td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

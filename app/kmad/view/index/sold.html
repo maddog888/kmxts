@@ -1,1 +1,118 @@
-{layout name="layout"/}<div class="tpl-content-wrapper"><div class="tpl-portlet-components"><div class="portlet-title"><div class="caption font-green bold"><span class="am-icon-code"></span> 未售卡密管理 </div></div><form method="post"><div class="tpl-block"><div class="am-g"><div class="am-u-sm-12"><div class="am-u-sm-12 am-u-md-6"><div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs"><button type="button" class="am-btn am-btn-default am-btn-warning"data-am-modal="{target: '#a'}">删除所选卡密</button><button type="button"class="am-btn am-btn-xs am-btn-default am-btn-danger"data-am-modal="{target: '#b'}">删除以下{$kmc}个卡密</button><a class="am-btn am-btn-default am-btn-success" href="?spid={$_GET['spid'] ?: ''}&dc">导出以下{$kmc}个卡密</a><input name="dd" id="dd" type="submit" style="display: none;"><input name="de" id="de" type="submit" style="display: none;"></div></div></div><div class="am-u-sm-12 am-u-md-3"><div class="am-form-group"><select id="sx" data-am-selected="{btnSize: 'sm',maxHeight: 200,searchBox: 1}" onchange="checkl(this.value);"><option>筛选卡密种类</option>{foreach $lists as $v}<option value="{$v['id']}">{$v['title']}</option>{/foreach}</select></div></div><div class="am-u-sm-12 am-u-md-3"><div class="caption font-green bold">统计:当前条件共有{$kmc}个卡密</div></div></div><table class="am-table am-table-striped am-table-hover table-main"><thead><tr><th><input type="checkbox" onclick="swapCheck()" /></th> <th class="table-id">ID</th><th class="table-title">卡密名称</th><th class="table-km">卡密数据</th><th class="table-de">操作</th></tr></thead><tbody>{foreach $kml as $v}<tr><td><input type="checkbox" value="{$v['id']}" name="kms[]"></td><td>{$v['id']}</td><td>{$v['name'] ?: '商品已不存在'}</td><td>{$v['km']}</td><td><a class="am-btn am-btn-xs am-btn-default am-btn-danger" href="?d={$v['id']}">删除</button></td></tr>{/foreach}</tbody></table><div class="am-cf"><div class="am-fr">{$kml->render()}</div></div></div></div></div></form></div><div class="am-modal am-modal-alert" tabindex="-1" id="a"><div class="am-modal-dialog"><div class="am-modal-hd">数据无价,请三思</div><div class="am-modal-bd">你确定要删除吗？</div><div class="am-modal-footer"><span class="am-modal-btn" data-am-modal-cancel>取消</span><a class="am-modal-btn" onclick="dd();" data-am-modal-confirm>确定</a></div></div></div><div class="am-modal am-modal-alert" tabindex="-1" id="b"><div class="am-modal-dialog"><div class="am-modal-hd">数据无价,请三思</div><div class="am-modal-bd">你确定要删除吗？</div><div class="am-modal-footer"><span class="am-modal-btn" data-am-modal-cancel>取消</span><a class="am-modal-btn" onclick="de();" data-am-modal-confirm>确定</a></div></div></div></div><script type="text/javascript">function dd(){var dd = document.getElementById("dd");dd.click();}function de(){var de = document.getElementById("de");de.click();}</script>
+{layout name="layout"/}
+<div class="tpl-content-wrapper">
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption font-green bold">
+                <span class="am-icon-code"></span> 未售卡密管理 
+            </div>
+        </div>
+        <form method="post">
+            <div class="tpl-block">
+                <div class="am-g">
+                    <div class="am-u-sm-12">
+                        <div class="am-u-sm-12 am-u-md-6">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button
+                                        type="button"
+                                        class="am-btn am-btn-default am-btn-warning"
+                                        data-am-modal="{target: '#a'}">
+                                        删除所选卡密
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="am-btn am-btn-xs am-btn-default am-btn-danger"
+                                        data-am-modal="{target: '#b'}">
+                                        删除以下{$kmc}个卡密
+                                    </button>
+                                    <a class="am-btn am-btn-default am-btn-success" href="?spid={$_GET['spid'] ?: ''}&dc">
+                                        导出以下{$kmc}个卡密
+                                    </a>
+                                    <input name="dd" id="dd" type="submit" style="display: none;">
+                                    <input name="de" id="de" type="submit" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-form-group">
+                                <select id="sx" data-am-selected="{btnSize: 'sm',maxHeight: 200,searchBox: 1}" onchange="checkl(this.value);">
+                                    <option>筛选卡密种类</option>
+                                    {foreach $lists as $v}
+                                        <option value="{$v['id']}">{$v['title']}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="caption font-green bold">
+                                统计:当前条件共有{$kmc}个卡密
+                            </div>
+                        </div>
+                    </div>
+                        <table class="am-table am-table-striped am-table-hover table-main">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" onclick="swapCheck()" /></th> 
+                                    <th class="table-id">ID</th>
+                                    <th class="table-title">卡密名称</th>
+                                    <th class="table-km">卡密数据</th>
+                                    <th class="table-de">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {foreach $kml as $v}
+                                    <tr>
+                                        <td><input type="checkbox" value="{$v['id']}" name="kms[]"></td>
+                                        <td>{$v['id']}</td>
+                                        <td>{$v['name'] ?: '商品已不存在'}</td>
+                                        <td>{$v['km']}</td>
+                                        <td><a class="am-btn am-btn-xs am-btn-default am-btn-danger" href="?d={$v['id']}">删除</button></td>
+                                    </tr>
+                                {/foreach}
+                            </tbody>
+                        </table>
+                        <div class="am-cf">
+                            <div class="am-fr">
+                                {$kml->render()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="a">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">数据无价,请三思</div>
+            <div class="am-modal-bd">
+                你确定要删除吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <a class="am-modal-btn" onclick="dd();" data-am-modal-confirm>确定</a>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="b">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">数据无价,请三思</div>
+            <div class="am-modal-bd">
+                你确定要删除吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <a class="am-modal-btn" onclick="de();" data-am-modal-confirm>确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function dd(){
+        var dd = document.getElementById("dd");
+        dd.click();
+    }
+    function de(){
+        var de = document.getElementById("de");
+        de.click();
+    }
+</script>

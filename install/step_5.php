@@ -27,7 +27,7 @@
       
       <li class="admin">
         <div class="ico"></div>
-        <h5><a href="<?php echo $auto_site_url;?>admin" target="_blank">系统管理</a></h5>
+        <h5><a href="<?php echo $auto_site_url;?>kmad" target="_blank">系统管理</a></h5>
         <h6>系统后台</h6>
       </li>
     </ul>
@@ -35,7 +35,7 @@
   <div class="final-intro">
     <p><strong>系统管理默认帐号:&nbsp;</strong>admin</p>
     <p><strong>系统管理默认密码:&nbsp;</strong>123456</p>
-    <p><strong>系统管理默认地址:&nbsp;</strong><a href="<?php echo $auto_site_url;?>admin" target="_blank"><?php echo $auto_site_url;?>admin</a></p>
+    <p><strong>系统管理默认地址:&nbsp;</strong><a href="<?php echo $auto_site_url;?>kmad" target="_blank"><?php echo $auto_site_url;?>kmad</a></p>
     <p><strong>网站首页默认地址:&nbsp;</strong><a href="<?php echo $auto_site_url;?>" target="_blank"><?php echo $auto_site_url;?></a></p>
   </div>
 </div>

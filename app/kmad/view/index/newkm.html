@@ -1,1 +1,56 @@
-{layout name="layout"/}<div class="tpl-content-wrapper"><div class="tpl-portlet-components"><div class="portlet-title"><div class="caption font-green bold"><span class="am-icon-code"></span> 添加卡密</div></div><div class="tpl-block"><div class="am-g"><div class="tpl-form-body tpl-form-line"><form class="am-form tpl-form-line-form" method="post"><div class="am-form-group"><label for="user-phone" class="am-u-sm-3 am-form-label">卡密归属</label><div class="am-u-sm-9"><select data-am-selected="{maxHeight: 230,searchBox: 1}" name="spid" id="spid">{foreach $lists as $v}<option value="{$v['id']}">{$v['title']}</option>{/foreach}</select></div></div><div class="am-form-group"><label for="user-intro" class="am-u-sm-3 am-form-label">添加卡密</label><div class="am-u-sm-9"><textarea class="" rows="10" name="km" placeholder="一行一个卡密"></textarea></div></div><div class="am-form-group"><label class="am-u-sm-3 am-form-label">是否过滤重复卡密</label><div class="am-u-sm-9"><div class="tpl-switch"><input type="checkbox" name="lv" class="ios-switch bigswitch tpl-switch-btn"><div class="tpl-switch-btn-view"><div></div></div></div></div></div><div class="am-form-group"><div class="am-u-sm-9 am-u-sm-push-3"><input type="submit" value="添加" name="insert" class="am-btn am-btn-primary tpl-btn-bg-color-success"></div></div></form></div></div></div></div></div><script type="text/javascript">var yl = '<?php echo !empty($_GET['spid']) ? $_GET['spid'] : ''; ?>';if(yl){$('#spid').val(yl);}</script>
+{layout name="layout"/}
+<div class="tpl-content-wrapper">
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption font-green bold">
+                <span class="am-icon-code"></span> 添加卡密
+            </div>
+        </div>
+        <div class="tpl-block">
+            <div class="am-g">
+                <div class="tpl-form-body tpl-form-line">
+                    <form class="am-form tpl-form-line-form" method="post">
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">卡密归属</label>
+                            <div class="am-u-sm-9">
+                                <select data-am-selected="{maxHeight: 230,searchBox: 1}" name="spid" id="spid">
+                                    {foreach $lists as $v}
+                                        <option value="{$v['id']}">{$v['title']}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-intro" class="am-u-sm-3 am-form-label">添加卡密</label>
+                            <div class="am-u-sm-9">
+                                <textarea class="" rows="10" name="km" placeholder="一行一个卡密"></textarea>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">是否过滤重复卡密</label>
+                            <div class="am-u-sm-9">
+                                <div class="tpl-switch">
+                                    <input type="checkbox" name="lv" class="ios-switch bigswitch tpl-switch-btn">
+                                    <div class="tpl-switch-btn-view"><div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <input type="submit" value="添加" name="insert" class="am-btn am-btn-primary tpl-btn-bg-color-success">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var yl = '<?php echo !empty($_GET['spid']) ? $_GET['spid'] : ''; ?>';
+    if(yl){
+        $('#spid').val(yl);
+    }
+</script>

@@ -1,1 +1,61 @@
-{layout name="layout"/}<div class="tpl-content-wrapper"><div class="row"><div class="am-u-lg-3 am-u-md-6 am-u-sm-12"><div class="dashboard-stat blue"><div class="visual"><i class="am-icon-paypal"></i></div><div class="details"><div class="number"> ￥ <?php if($zfbc){echo $zfbc;}else{echo '0';} ?> </div><div class="desc"> 今天支付宝收入 </div></div><div class="more"> 支付宝今日交易笔数 <?php if($zfbb){echo $zfbb;}else{echo '0';} ?> 次 <i class="m-icon-swapright m-icon-white"></i></div></div></div><div class="am-u-lg-3 am-u-md-6 am-u-sm-12"><div class="dashboard-stat green"><div class="visual"><i class="am-icon-weixin"></i></div><div class="details"><div class="number"> ￥ <?php if($wxc){echo $wxc;}else{echo '0';} ?> </div><div class="desc"> 今天微信收入 </div></div><div class="more"> 微信今日交易笔数 <?php if($wxb){echo $wxb;}else{echo '0';} ?> 次 <i class="m-icon-swapright m-icon-white"></i></div></div></div><div class="am-u-lg-3 am-u-md-6 am-u-sm-12"><div class="dashboard-stat red"><div class="visual"><i class="am-icon-qq"></i></div><div class="details"><div class="number"> ￥ <?php if($qqc){echo $qqc;}else{echo '0';} ?> </div><div class="desc"> 今天QQ收入 </div></div><div class="more"> QQ今日交易笔数 <?php if($qqb){echo $qqb;}else{echo '0';} ?> 次 <i class="m-icon-swapright m-icon-white"></i></div></div></div><div class="am-u-lg-3 am-u-md-6 am-u-sm-12"><div class="dashboard-stat purple"><div class="visual"><i class="am-icon-bar-chart-o"></i></div><div class="details"><div class="number"> <?php if($z){echo $z;}else{echo '0';} ?> 元 </div><div class="desc"> 总交易额 </div></div><div class="more"> 剩余卡密<?php if($kmc){echo $kmc;}else{echo '0';} ?> 个<i class="m-icon-swapright m-icon-white"></i></div></div></div></div></div>
+{layout name="layout"/}
+<div class="tpl-content-wrapper">
+    <div class="row">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="am-icon-paypal"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> ￥ <?php if($zfbc){echo $zfbc;}else{echo '0';} ?> </div>
+                    <div class="desc"> 今天支付宝收入 </div>
+                </div>
+                <div class="more"> 支付宝今日交易笔数 <?php if($zfbb){echo $zfbb;}else{echo '0';} ?> 次 
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="am-icon-weixin"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> ￥ <?php if($wxc){echo $wxc;}else{echo '0';} ?> </div>
+                    <div class="desc"> 今天微信收入 </div>
+                </div>
+                <div class="more"> 微信今日交易笔数 <?php if($wxb){echo $wxb;}else{echo '0';} ?> 次 
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="am-icon-qq"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> ￥ <?php if($qqc){echo $qqc;}else{echo '0';} ?> </div>
+                    <div class="desc"> 今天QQ收入 </div>
+                </div>
+                <div class="more"> QQ今日交易笔数 <?php if($qqb){echo $qqb;}else{echo '0';} ?> 次 
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="am-icon-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> <?php if($z){echo $z;}else{echo '0';} ?> 元 </div>
+                    <div class="desc"> 总交易额 </div>
+                </div>
+                <div class="more"> 剩余卡密  <?php if($kmc){echo $kmc;}else{echo '0';} ?> 个
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

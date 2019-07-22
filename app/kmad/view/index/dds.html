@@ -1,1 +1,71 @@
-{layout name="layout"/}<script src="../js/base64.js"></script><div class="tpl-content-wrapper"><div class="tpl-portlet-components"><div class="portlet-title"><div class="caption font-green bold"><span class="am-icon-code"></span> 订单管理</div><div class="am-u-sm-12 am-u-md-3"><div class="am-form-group"><select data-am-selected="{btnSize: 'sm',maxHeight: 150}" onchange="check(this.value);"><option>{$to}</option>{foreach $lists as $v}<option value="{$v['id']}">{$v['title']}</option>{/foreach}</select></div></div><div class="tpl-portlet-input tpl-fz-ml"><div class="portlet-input input-small input-inline"><div class="input-icon right"><form method="get"><input type="text" class="form-control form-control-solid" placeholder="订单号" name="order"></div></div><button class="am-btn am-btn-primary am-btn-xs am-radius">搜索</button></form></div></div><div class="tpl-block"><div class="am-g"><div class="am-u-sm-12"><a type="button" class="am-btn am-btn-secondary" href="?ql">点我可清理已过期的订单[优化数据库]</a><table class="am-table am-table-striped am-table-hover table-main"><thead><tr><th class="table-title">商品名称</th><th class="table-title">订单号</th><th class="table-title">订单金额</th><th class="table-title">购买数量</th><th class="table-set">联系方式</th><th class="table-set">下单时间</th><th class="table-set">操作</th></tr></thead><tbody>{foreach $order as $v}<tr><td>{$v['title'] ?: '商品已不存在'}</td><td><a href="/?order={$v['order']}" target="_blank" class="am-badge am-badge-warning">{$v['order']}</a></td><td>{$v['money']}</td><td>{$v['time']}</td><td>{$v['pwd']}</td><td>{$v['stime']}</td><td><a class="am-btn am-btn-success am-btn-xs" href="?bd={$v['id']}">快速补单(请确保商品库存充足)</a></td></tr>{/foreach}</tbody></table></div></div><div class="am-cf"><div class="am-fr">{$order->render()}</div></div></div><div class="tpl-alert"></div></div></div><script type="text/javascript">Base64 = new Base64();</script>
+{layout name="layout"/}
+<script src="../js/base64.js"></script>
+<div class="tpl-content-wrapper">
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption font-green bold">
+                <span class="am-icon-code"></span> 订单管理
+            </div>
+            <div class="am-u-sm-12 am-u-md-3">
+                <div class="am-form-group">
+                    <select data-am-selected="{btnSize: 'sm',maxHeight: 150}" onchange="check(this.value);">
+                        <option>{$to}</option>
+                        {foreach $lists as $v}
+                            <option value="{$v['id']}">{$v['title']}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="tpl-portlet-input tpl-fz-ml">
+                <div class="portlet-input input-small input-inline">
+                    <div class="input-icon right"><form method="get">
+                        <input type="text" class="form-control form-control-solid" placeholder="订单号" name="order">
+                    </div>
+                </div>
+                <button class="am-btn am-btn-primary am-btn-xs am-radius">搜索</button></form>
+            </div>
+        </div>
+        <div class="tpl-block">
+            <div class="am-g">
+                <div class="am-u-sm-12">
+                    <a type="button" class="am-btn am-btn-secondary" href="?ql">点我可清理已过期的订单[优化数据库]</a>
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                            <tr>
+                                <th class="table-title">商品名称</th>
+                                <th class="table-title">订单号</th>
+                                <th class="table-title">订单金额</th>
+                                <th class="table-title">购买数量</th>
+                                <th class="table-set">联系方式</th>
+                                <th class="table-set">下单时间</th>
+                                <th class="table-set">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach $order as $v}
+                                <tr>
+                                    <td>{$v['title'] ?: '商品已不存在'}</td>
+                                    <td><a href="/?order={$v['order']}" target="_blank" class="am-badge am-badge-warning">{$v['order']}</a></td>
+                                    <td>{$v['money']}</td>
+                                    <td>{$v['time']}</td>
+                                    <td>{$v['pwd']}</td>
+                                    <td>{$v['stime']}</td>
+                                    <td><a class="am-btn am-btn-success am-btn-xs" href="?bd={$v['id']}">快速补单(请确保商品库存充足)</a></td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="am-cf">
+                <div class="am-fr">
+                    {$order->render()}
+                </div>
+            </div>
+        </div>
+        <div class="tpl-alert"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    Base64 = new Base64();
+</script>
