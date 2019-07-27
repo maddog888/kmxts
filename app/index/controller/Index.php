@@ -22,24 +22,24 @@
     {
         public function index()
         {
-        	$config = Db::table('config')->find(1);
-        	$type = Db::table('type')->where('s',1)->order('or desc')->select();
-        	$list = Db::query('select *,(select count(*) from kms where kms.spid = lists.id and kms.order IS NULL) AS count from lists where s = 1 ORDER BY `or` DESC');
-        	$tjson = json_encode($type);
-        	$ljson = json_encode($list);
+            $config = Db::table('config')->find(1);
+            $type = Db::table('type')->where('s',1)->order('or desc')->select();
+            $list = Db::query('select *,(select count(*) from kms where kms.spid = lists.id and kms.order IS NULL) AS count from lists where s = 1 ORDER BY `or` DESC');
+            $tjson = json_encode($type);
+            $ljson = json_encode($list);
             if($this->isMobile()){
                 $m = 'phone';
             }else{
                 $m = 'pc';
             }
-        	return view($m,[
-        		'config' => $config,
-        		'type' => $type,
-        		'list' => $list,
-        		'tjson' => $tjson,
-        		'ljson' => $ljson,
+            return view($m,[
+                'config' => $config,
+                'type' => $type,
+                'list' => $list,
+                'tjson' => $tjson,
+                'ljson' => $ljson,
                 'footer' => base64_decode('PGZvb3Rlcj4KCQk8aW5wdXQgdHlwZT0iaGlkZGVuIiBpZD0iQ29weXJpZ2h0IiB2YWx1ZT0ib2siPgoJCTxwPkNvcHlyaWdodCBCeSBFRExNPC9wPgoJPC9mb290ZXI+')
-        	]);
+            ]);
         }
         public function post()
         {
@@ -95,7 +95,7 @@
                 $host = str_replace('post', 'get', $host);
                 $return = base64_encode($host.'?order='.$dh);
                 $notify = base64_encode($host.'?notify=ok&order='.$dh);
-                $url = 'http://pay.edlm.cn/?appid='.$lp['appid'].'&income='.$money.'&gu='.$notify.'&rurl='.$return.'&type='.$_POST['type'];
+                $url = 'http://pay.edlm.cn/?appid='.$lp['appid'].'&income='.$money.'&gu='.$notify.'&rurl='.$return.'&type='.$_POST['type'].'&orderid='.$dh;
                 return $this->AjaxSuccess($url);
             }
             return $this->AjaxError('未知错误,请刷新后重试！');
@@ -304,3 +304,4 @@
             return false;
         }
     }
+    
