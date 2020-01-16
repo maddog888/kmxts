@@ -132,35 +132,10 @@
                     }
                     $appid = $lp['appid'];
                     $apppwd = $lp['apppwd'];
-                    if($ltype==='alipay'){ 
-                        $mode = "支付宝";
-                        $row = $this->acs($appid,$wdh);//使用单号查询 acs是查询支付宝单号,wcs微信,qcs QQ 
-                    }else if($ltype==='wxpay'){ 
-                        $mode = "微信";
-                        $row = $this->wcs($appid,$wdh);//使用单号查询 acs是查询支付宝单号,wcs微信,qcs QQ 
-                    }else if($ltype==='qqpay'){ 
-                        $mode = "QQ";
-                        $row = $this->qcs($appid,$wdh);//使用单号查询 acs是查询支付宝单号,wcs微信,qcs QQ 
-                    }else{
-                        return '订单参数有误,请勿非法操作,此单作废';
+                    if(empty($_GET['lppwd'])){
+                    	return 'error';
                     }
-                    $row = json_decode($row);//JSON解析 
-                    //判断是否存在错误 
-                    if($row->{'error'}==0){
-                        $token = md5($row->{'tradeNo'}.$apppwd.$wdh);//生成此订单的唯一密钥 
-                        //判断密钥是否正确 
-                        if($row->{'token'}!=$token){ 
-                            return 'L Pays:此数据来自外宇宙,并不是有效的数据'; 
-                        } 
-                        $tradeNo = $row->{'tradeNo'};//服务器返回的交易号 
-                        $tradeAmount = $row->{'tradeAmount'};//金额 
-                        $tradeTime = $row->{'tradeTime'};//交易时间 
-                        //$goodsTitle = $row->{'goodsTitle'};//备注信息
-                        //数据处理
-                    }else{
-                        return $row->{'msg'};
-                    }
-                    if($tradeAmount>=$s['money']){
+                    if($_GET['lppwd']==$apppwd){
                         //最后完成交易
                         $c = Db::table('kms')->where('spid',$s['spid'])->count();
                         if($s['time']>$c){
