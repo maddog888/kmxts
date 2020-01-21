@@ -136,6 +136,9 @@
                     	return 'error';
                     }
                     if($_GET['lppwd']==$apppwd){
+                    	if($_GET['income']<$s['money']){
+                    		return '价格不符'; 
+                    	}
                         //最后完成交易
                         $c = Db::table('kms')->where('spid',$s['spid'])->count();
                         if($s['time']>$c){
